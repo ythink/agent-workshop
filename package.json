@@ -1,0 +1,32 @@
+{
+  "name": "agent-workshop",
+  "version": "1.0.0",
+  "description": "ToDo application for Agent Workshop",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage"
+  },
+  "keywords": [
+    "todo",
+    "express",
+    "node"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^3.2.4",
+    "nodemon": "^3.0.1",
+    "supertest": "^7.1.4",
+    "vitest": "^0.34.6"
+  }
+}
