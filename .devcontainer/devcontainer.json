@@ -27,6 +27,10 @@
   },
 
   "forwardPorts": [3000],
+  
+  "otherPortsAttributes": {
+    "onAutoForward": "ignore"
+  },
 
   "postCreateCommand": "npm install",
 
