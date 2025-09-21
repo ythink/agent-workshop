@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo App</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>ToDo App</h1>
+    
+    <!-- 新規ToDo作成フォーム -->
+    <div class="todo-form">
+      <input type="text" id="newTodoInput" placeholder="新しいタスクを入力">
+      <button onclick="createTodo()">追加</button>
+    </div>
+
+    <!-- ToDo一覧 -->
+    <div class="todo-board">
+      <!-- Todoセクション -->
+      <div class="todo-column">
+        <h2>Todo</h2>
+        <div class="todo-list" id="todo-Todo">
+          <% todos.Todo.forEach(todo => { %>
+            <div class="todo-item" data-id="<%= todo.id %>">
+              <span class="todo-title"><%= todo.title %></span>
+              <div class="todo-actions">
+                <select onchange="updateTodoStatus('<%= todo.id %>', this.value)">
+                  <option value="Todo" selected>Todo</option>
+                  <option value="Doing">Doing</option>
+                  <option value="Completed">Completed</option>
+                </select>
+                <button onclick="deleteTodo('<%= todo.id %>')" class="delete-btn">削除</button>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <!-- Doingセクション -->
+      <div class="todo-column">
+        <h2>Doing</h2>
+        <div class="todo-list" id="todo-Doing">
+          <% todos.Doing.forEach(todo => { %>
+            <div class="todo-item" data-id="<%= todo.id %>">
+              <span class="todo-title"><%= todo.title %></span>
+              <div class="todo-actions">
+                <select onchange="updateTodoStatus('<%= todo.id %>', this.value)">
+                  <option value="Todo">Todo</option>
+                  <option value="Doing" selected>Doing</option>
+                  <option value="Completed">Completed</option>
+                </select>
+                <button onclick="deleteTodo('<%= todo.id %>')" class="delete-btn">削除</button>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+
+      <!-- Completedセクション -->
+      <div class="todo-column">
+        <h2>Completed</h2>
+        <div class="todo-list" id="todo-Completed">
+          <% todos.Completed.forEach(todo => { %>
+            <div class="todo-item" data-id="<%= todo.id %>">
+              <span class="todo-title"><%= todo.title %></span>
+              <div class="todo-actions">
+                <select onchange="updateTodoStatus('<%= todo.id %>', this.value)">
+                  <option value="Todo">Todo</option>
+                  <option value="Doing">Doing</option>
+                  <option value="Completed" selected>Completed</option>
+                </select>
+                <button onclick="deleteTodo('<%= todo.id %>')" class="delete-btn">削除</button>
+              </div>
+            </div>
+          <% }); %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
